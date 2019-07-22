@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_bs_income_balance_general"  inherit_id="bs_report.report_bs_income_balance_analytic">
+
+    </template>
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="accounting_report_view_wizard_inherit_bs_report" model="ir.ui.view">
+            <field name="name">account.report.view</field>
+            <field name="model">accounting.report</field>
+            <field name="inherit_id" ref="account.accounting_report_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//footer/button[@name='check_report']" position="before" >
+                    <button name="check_html_report" string="Show" type="object" default_focus="1" class="btn-info"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

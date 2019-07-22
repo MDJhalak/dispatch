@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bs_income_balance_statement_general_view_form_wizard" model="ir.ui.view">
+            <field name="name">bs.income.balance.general.form.wizard</field>
+            <field name="model">bs.income.balance.general</field>
+            <field name="inherit_id" ref="bs_report.bs_income_balance_statement_common_view_form_wizard"/>
+            <field name="arch" type="xml">
+                <field name="display_type" position="after">
+                    <field name="move_type" widget="radio" />
+                </field>
+            </field>
+        </record>
+
+        <record id="bs_income_balance_statement_general_action_all_income_statement" model="ir.actions.act_window">
+            <field name="name">Income Statement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bs.income.balance.general</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bs_income_balance_statement_general_view_form_wizard"/>
+            <field name="target">new</field>
+            <field name="context">{
+                'statement_type': "income"
+            }</field>
+        </record>
+
+        <record id="bs_income_balance_statement_general_action_all_balance_sheet" model="ir.actions.act_window">
+            <field name="name">Balance Sheet</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bs.income.balance.general</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bs_income_balance_statement_general_view_form_wizard"/>
+            <field name="target">new</field>
+            <field name="context">{
+                'statement_type': "balance"
+            }</field>
+        </record>
+
+        <menuitem id="menu_financial_statements" name="Financial Statements" parent="account.menu_finance_reports"/>
+            <menuitem id="bs_income_statement_menu_action" name="Income Statement" parent="bs_report.menu_financial_statements" action="bs_income_balance_statement_general_action_all_income_statement"/>
+            <menuitem id="bs_balance_sheet_menu_action" name="Balance Sheet" parent="bs_report.menu_financial_statements" action="bs_income_balance_statement_general_action_all_balance_sheet"/>
+    </data>
+</odoo>

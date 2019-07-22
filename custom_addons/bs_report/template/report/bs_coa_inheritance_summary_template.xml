@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_bs_coa_inheritance_summary">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <link rel='stylesheet' href='/bs_report/static/src/css/bs_report.css'/>
+
+                    <h2 t-esc="info['statement_name']" />
+
+                    <div class="row mt32">
+                        <t t-if="info['start_date']">
+                            <div class="col-xs-2">
+                                <strong>Start Date:</strong>
+                                <p t-esc="info['start_date']"/>
+                            </div>
+                        </t>
+                        <t t-if="info['end_date']">
+                            <div class="col-xs-2">
+                                <strong>End Date:</strong>
+                                <p t-esc="info['end_date']"/>
+                            </div>
+                        </t>
+                    </div>
+
+                    <br/>
+                    <!--coa inheritance statement-->
+                    <table class="table table-condensed borderless statement-style mb32" style="table-layout:auto;">
+                        <tbody>
+                            <t t-foreach="data" t-as="entry">
+                                <tr>
+                                    <th><t t-esc="entry['account_name']"/></th>
+                                    <th class="statement-amount"><t t-esc="amount_data.get(str(entry['account_id']), {}).get('amount', 0)" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></th>
+                                </tr>
+                                <t t-foreach="entry['child']" t-as="child">
+                                    <tr>
+                                        <td><t t-esc="child['account_name']"/></td>
+                                        <td class="statement-amount"><t t-esc="amount_data.get(str(child['account_id']), {}).get('amount', 0)" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                    <!--ends here-->
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

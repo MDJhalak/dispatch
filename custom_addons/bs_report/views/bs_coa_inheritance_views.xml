@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="bs_coa_inheritance_view_form" model="ir.ui.view">
+            <field name="name">bs.coa.inheritance.form</field>
+            <field name="model">bs.coa.inheritance</field>
+            <field name="arch" type="xml">
+                <form string="Inheritance Matrix">
+                    <h1 class="mt0">
+                        <div>
+                            <field name="name" class="oe_inline"/>
+                        </div>
+                    </h1>
+                    <group string="Information">
+                        <field name="account_account_id"/>
+                        <field name="user_type_id" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Inheritance Lines">
+                            <field name="inheritance_lines" context="{'user_type_id': user_type_id}">
+                                <tree string="Inheritance Lines" editable="bottom">
+                                    <field name="account_account_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="bs_coa_inheritance_view_tree" model="ir.ui.view">
+            <field name="name">bs.coa.inheritance.tree</field>
+            <field name="model">bs.coa.inheritance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="account_account_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bs_coa_inheritance_action">
+            <field name="name">Inheritance Matrix</field>
+            <field name="res_model">bs.coa.inheritance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu entry -->
+        <menuitem id="menu_bs_coa_inheritance" name="COA Inheritance" parent="account.menu_finance_configuration" action="bs_coa_inheritance_action" sequence="1"/>
+    </data>
+</odoo>

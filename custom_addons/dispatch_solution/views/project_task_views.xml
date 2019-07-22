@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="project_task_ext_form" model="ir.ui.view">
+            <field name="name">project.task.ext.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="type"/>
+                </xpath>
+                <xpath expr="//page[@name='description_page']" position="after">
+                    <!--                    <page string="Concrete Log" name="concrete_log">-->
+                    <!--                        <field name="concr_plc_log_ids">-->
+                    <!--                            <tree editable="bottom">-->
+                    <!--                                <field name="load_no"/>-->
+                    <!--                                <field name="truck_no"/>-->
+                    <!--                                <field name="cubic_yards"/>-->
+                    <!--                                <field name="cum_yards"/>-->
+                    <!--                                <field name="spec_location"/>-->
+                    <!--                                <field name="batch_time" widget="float_time"/>-->
+                    <!--                                <field name="start_time" widget="float_time"/>-->
+                    <!--                                <field name="sample_time" widget="float_time"/>-->
+                    <!--                                <field name="finish_time" widget="float_time"/>-->
+                    <!--                                <field name="total_time" widget="float_time"/>-->
+                    <!--                            </tree>-->
+                    <!--                        </field>-->
+                    <!--                    </page>-->
+                    <!--                    <page string="Inspection Checklist" name="inspection_checklist">-->
+                    <!--                        <group>-->
+                    <!--                            <field name="inspection_checklists" widget="many2many_tags"/>-->
+                    <!--                        </group>-->
+                    <!--                        <field name="checklist_tasks">-->
+                    <!--                            <tree editable="bottom">-->
+                    <!--                                <field name="checklist_items" string="Inspection Name"/>-->
+                    <!--                                <field name="is_done"/>-->
+                    <!--                                <field name="comments"/>-->
+                    <!--                                <field name="checklist_id" invisible="1"/>-->
+                    <!--                                <field name="project_id" invisible="1"/>-->
+                    <!--                            </tree>-->
+                    <!--                        </field>-->
+                    <!--                    </page>-->
+                    <page string="Field Report" name="daily_field_report">
+                        <field name="daily_field_report" context="{'default_type':type}">
+                            <tree decoration-muted="state=='draft'" decoration-info="state=='pending'" decoration-success="state=='approved'"
+                                  decoration-danger="state=='cancelled'">
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <!--                    <page string="Outcome" name="report_outcome">-->
+                    <!--                        <field name="outcome"/>-->
+
+                    <!--                    </page>-->
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

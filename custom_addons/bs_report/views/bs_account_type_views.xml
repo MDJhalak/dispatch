@@ -1,0 +1,9 @@
+<odoo>
+    <data noupdate="1">
+        <!--Create/Update new/extra account type for model 'account.account.type'-->
+        <!--Form model 'bs.account.type' triggering method '_generate_new_account_type' without parameter -->
+        <!--skip creation type if already exist-->
+        <!--This will execute only once-->
+        <function id="bs_account_type_account_type_generation" model="bs.account.type" name="_generate_new_account_type" />
+    </data>
+</odoo>

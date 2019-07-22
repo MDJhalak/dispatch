@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bs_coa_inheritance_summary_view_form_wizard" model="ir.ui.view">
+            <field name="name">bs.coa.inheritance.summary.form.wizard</field>
+            <field name="model">bs.coa.inheritance.summary</field>
+            <field name="arch" type="xml">
+                <form string="COA Inheritance Summary">
+                    <group>
+                        <group>
+                            <field name="display_type" widget="radio"/>
+                            <field name="move_type" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="start_date" />
+                            <field name="end_date" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="check_html_report" string="Show" type="object" class="btn-info"/>
+                        <button name="check_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="bs_coa_inheritance_summary_action" model="ir.actions.act_window">
+            <field name="name">COA Inheritance Summary</field>
+            <field name="res_model">bs.coa.inheritance.summary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bs_report.bs_coa_inheritance_summary_view_form_wizard"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="bs_report.model_bs_coa_inheritance" />
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

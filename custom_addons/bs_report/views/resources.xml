@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="bs_report assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!--<link rel='stylesheet' href="/bs_report/static/src/css/bs_report.css"/>-->
+                <!--<script type="text/javascript" src="/bs_sales/static/src/js/bs_sales_assets.js"></script>-->
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bs_income_balance_statement_common_view_form_wizard" model="ir.ui.view">
+            <field name="name">bs.income.balance.common.form.wizard</field>
+            <field name="model">bs.income.balance.common</field>
+            <field name="arch" type="xml">
+                <form string="Income Statement and Balance Sheet">
+                    <group>
+                        <group>
+                            <field name="report_type" widget="radio" />
+                            <field name="display_type" widget="radio" />
+                        </group>
+                        <group>
+                            <field name="start_date" />
+                            <field name="end_date" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="check_html_report" string="Show" type="object" class="btn-info"/>
+                        <button name="check_report" string="Print" type="object" class="btn-primary"/>
+                        <button name="print_xls_report" string="Print XLS" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="bs_income_balance_statement_common_action" model="ir.actions.act_window">
+            <field name="name">Income and Balance Common Statement</field>
+            <field name="res_model">bs.income.balance.common</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bs_report.bs_income_balance_statement_common_view_form_wizard"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

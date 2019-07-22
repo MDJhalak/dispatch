@@ -1,0 +1,21 @@
+.borderless td, .borderless th {
+    border: none !important;
+}
+
+.statement-style td {
+    padding-left: 2em !important;
+}
+
+.statement-amount {
+    text-align: right;
+    padding-right: 1em !important;
+}
+
+.top-bottom-border th {
+    border-bottom: 1px solid #000 !important;
+    border-top: 1px solid #000 !important;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+}

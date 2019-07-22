@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem name="Dispatch Solution" id="dispatch_solution.menu_root" string="Dispatch Solution"/>
+        <menuitem name="Items" id="dispatch_solution.items" parent="dispatch_solution.menu_root"/>
+
+        <record model="ir.ui.view" id="concrete_placement_log_list_view">
+            <field name="name">concrete.placement.log.list</field>
+            <field name="model">concrete.placement.log</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="load_no"/>
+                    <field name="truck_no"/>
+                    <field name="cubic_yards"/>
+                    <field name="cum_yards"/>
+                    <field name="batch_time" widget="float_time"/>
+                    <field name="start_time" widget="float_time"/>
+                    <field name="sample_time" widget="float_time"/>
+                    <field name="finish_time" widget="float_time"/>
+                    <field name="total_time" widget="float_time"/>
+                    <field name="spec_location"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="concrete_placement_log_form_view">
+            <field name="name">concrete.placement.log.form</field>
+            <field name="model">concrete.placement.log</field>
+            <field name="arch" type="xml">
+                <form string="Concrete Placement">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <group>
+                            <group>
+                                <field name="load_no"/>
+                                <field name="truck_no"/>
+                                <field name="cubic_yards"/>
+                                <field name="cum_yards"/>
+                                <field name="spec_location"/>
+                            </group>
+                            <group>
+                                <field name="batch_time" widget="float_time"/>
+                                <field name="start_time" widget="float_time"/>
+                                <field name="sample_time" widget="float_time"/>
+                                <field name="finish_time" widget="float_time"/>
+                                <field name="total_time" widget="float_time"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="concrete_placement_log_action">
+            <field name="name">Concrete Placement Log</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">concrete.placement.log</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to start a new concrete placement log.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Concrete Placement Log" id="dispatch_solution.menu_1_list" parent="dispatch_solution.items"
+                  action="dispatch_solution.concrete_placement_log_action"/>
+
+
+        <record model="ir.ui.view" id="inspection_checklist_list_view">
+            <field name="name">inspection.checklist.list</field>
+            <field name="model">inspection.checklist</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="inspection_checklist_form_view">
+            <field name="name">inspection.checklist.form</field>
+            <field name="model">inspection.checklist</field>
+            <field name="arch" type="xml">
+                <form string="Inspection Checklist">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <field name="items" nolebel="1">
+                            <tree editable="bottom">
+                                <field name="name" string="Tasks Checklist"/>
+                                <!--                                        <field name="is_done"/>-->
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="inspection_checklist_action">
+            <field name="name">Inspection Checklist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">inspection.checklist</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to start a new inspection checklist.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Inspection Checklist" id="dispatch_solution.inspection_checklist"
+                  parent="dispatch_solution.items"
+                  action="dispatch_solution.inspection_checklist_action"/>
+
+        <record model="ir.ui.view" id="test_result_summary_list_view">
+            <field name="name">test.result.summary.list</field>
+            <field name="model">test.result.summary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="supplier"/>
+                    <field name="mix_id"/>
+                    <field name="req_strength"/>
+                    <field name="slump"/>
+                    <field name="unit_weight"/>
+                    <field name="air_content"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_result_summary_form_view">
+            <field name="name">test.result.summary.form</field>
+            <field name="model">test.result.summary</field>
+            <field name="arch" type="xml">
+                <form string="Test Result Summary">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <label for="name"/>
+                            <field name="name"/>
+                            <group>
+                                <field name="supplier"/>
+                                <field name="mix_id"/>
+                                <field name="req_strength"/>
+                            </group>
+                            <group>
+                                <field name="slump"/>
+                                <field name="unit_weight"/>
+                                <field name="air_content"/>
+                            </group>
+                        </group>
+                        <field name="test_ids" nolebel="1">
+                            <tree editable="bottom">
+                                <field name="set"/>
+                                <field name="load"/>
+                                <field name="mix_temp"/>
+                                <field name="slump"/>
+                                <field name="unit_weight"/>
+                                <field name="air_content"/>
+                                <field name="tag"/>
+                                <field name="samples"/>
+                                <field name="comments"/>
+                                <!--                                        <field name="is_done"/>-->
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="test_result_summary_action">
+            <field name="name">Test Result Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">test.result.summary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to start a new inspection checklist.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Test Result Summary" id="dispatch_solution.test_result_summary"
+                  parent="dispatch_solution.items"
+                  action="dispatch_solution.test_result_summary_action"/>
+
+
+        <record model="ir.ui.view" id="daily_field_report_list_view">
+            <field name="name">daily.field.report.list</field>
+            <field name="model">daily.field.report</field>
+            <field name="arch" type="xml">
+                <tree decoration-muted="state=='draft'"
+                      decoration-info="state=='pending'"
+                      decoration-success="state=='approved'"
+                      decoration-danger="state=='cancelled'">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="inspection_checklists"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="daily_field_report_form_view">
+            <field name="name">daily.field.report.form</field>
+            <field name="model">daily.field.report</field>
+            <field name="arch" type="xml">
+                <form string="Test Result Summary">
+                    <header>
+                        <button name="send_for_approval" string="Send for Approval" states="draft" type="object"
+                                class="oe_highlight"/>
+                        <button name="approve_report" string="Approve" states="pending" type="object"/>
+                        <button name="cancel_report" string="Cancel" states="pending" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,pending,approved"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="date" required="1"/>
+                            <field name="type"/>
+                            <!--                            <field name="outcome"/>-->
+                        </group>
+                        <notebook attrs="{'invisible': [('type', '!=', 'concrete')]}">
+                            <page string="Concrete Log" name="concrete_log">
+                                <field name="concr_plc_log_ids">
+                                    <tree editable="bottom">
+                                        <field name="load_no"/>
+                                        <field name="truck_no"/>
+                                        <field name="cubic_yards"/>
+                                        <field name="cum_yards"/>
+                                        <field name="spec_location"/>
+                                        <field name="batch_time" widget="float_time"/>
+                                        <field name="start_time" widget="float_time"/>
+                                        <field name="sample_time" widget="float_time"/>
+                                        <field name="finish_time" widget="float_time"/>
+                                        <field name="total_time" widget="float_time"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Inspection Checklist" name="inspection_checklist">
+                                <group>
+                                    <field name="inspection_checklists" widget="many2many_tags"/>
+                                </group>
+                                <field name="checklist_tasks">
+                                    <tree editable="bottom">
+                                        <field name="checklist_items" string="Inspection Name"/>
+                                        <field name="is_done"/>
+                                        <field name="comments"/>
+                                        <field name="checklist_id" invisible="1"/>
+                                        <field name="project_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Test Summary">
+                                <field name="test_summary"/>
+                            </page>
+                            <page string="Outcome" name="report_outcome">
+                                <group>
+                                    <field name="outcome"/>
+                                </group>
+                                <span attrs="{'invisible': [('outcome', '!=', 'wip')]}">*List of items required for
+                                    re-inspection are listed below.
+                                </span>
+                                <div attrs="{'invisible': [('outcome', '!=', 'wip')]}">
+                                    <field name="task_list"/>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="daily_field_report_action">
+            <field name="name">Daily Field Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">daily.field.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to start a new inspection checklist.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Daily Field Report" id="dispatch_solution.daily_field_report"
+                  parent="dispatch_solution.items"
+                  action="dispatch_solution.daily_field_report_action"/>
+
+        <!-- explicit list view definition -->
+        <!--
+        <record model="ir.ui.view" id="dispatch_solution.list">
+          <field name="name">dispatch_solution list</field>
+          <field name="model">dispatch_solution.dispatch_solution</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="value"/>
+              <field name="value2"/>
+            </tree>
+          </field>
+        </record>
+        -->
+
+        <!-- actions opening views on models -->
+        <!--
+        <record model="ir.actions.act_window" id="dispatch_solution.action_window">
+          <field name="name">dispatch_solution window</field>
+          <field name="res_model">dispatch_solution.dispatch_solution</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+        <record model="ir.actions.server" id="dispatch_solution.action_server">
+          <field name="name">dispatch_solution server</field>
+          <field name="model_id" ref="model_dispatch_solution_dispatch_solution"/>
+          <field name="state">code</field>
+          <field name="code">
+            action = {
+              "type": "ir.actions.act_window",
+              "view_mode": "tree,form",
+              "res_model": self._name,
+            }
+          </field>
+        </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+        <menuitem name="dispatch_solution" id="dispatch_solution.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+        <menuitem name="Menu 1" id="dispatch_solution.menu_1" parent="dispatch_solution.menu_root"/>
+        <menuitem name="Menu 2" id="dispatch_solution.menu_2" parent="dispatch_solution.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+        <menuitem name="List" id="dispatch_solution.menu_1_list" parent="dispatch_solution.menu_1"
+                  action="dispatch_solution.action_window"/>
+        <menuitem name="Server to list" id="dispatch_solution" parent="dispatch_solution.menu_2"
+                  action="dispatch_solution.action_server"/>
+        -->
+    </data>
+</odoo>

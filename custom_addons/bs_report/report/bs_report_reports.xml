@@ -1,0 +1,133 @@
+<odoo>
+    <data>
+        <report
+            id="action_html_report_financial"
+            model="account.financial.report"
+            string="Financial report HTML"
+            report_type="qweb-html"
+            name="account.report_financial"
+            file="account.report_financial"
+            />
+
+        <report
+            id="action_html_report_general_ledger"
+            model="account.report.general.ledger"
+            string="General Ledger HTML"
+            report_type="qweb-html"
+            name="account.report_generalledger"
+            file="account.report_generalledger"
+            />
+
+        <report
+            id="action_xls_report_general_ledger"
+            model="account.report.general.ledger"
+            string="General Ledger XLS"
+            report_type="xlsx"
+            name="bs_report.report_generalledger_xls"
+            file="bs_report.report_generalledger_xls"
+            />
+
+        <report
+            id="action_html_report_partnerledger"
+            model="account.report.partner.ledger"
+            string="Partner Ledger HTML"
+            report_type="qweb-html"
+            name="account.report_partnerledger"
+            file="account.report_partnerledger"
+            />
+
+        <report
+            id="action_xls_report_partnerledger"
+            model="account.report.partner.ledger"
+            string="Partner Ledger XLS"
+            report_type="xlsx"
+            name="bs_report.report_partnerledger_xls"
+            file="bs_report.report_partnerledger_xls"
+            />
+
+        <report
+            id="report_bs_income_balance_statement_analytic_action"
+            string="Income/Balance Statement"
+            model="bs.income.balance.analytic"
+            report_type="qweb-pdf"
+            name="bs_report.report_bs_income_balance_analytic"
+            file="bs_report.report_bs_income_balance_analytic"
+            menu="False" />
+
+        <report
+            id="html_report_bs_income_balance_statement_analytic_action"
+            string="Statement HTML"
+            model="bs.income.balance.analytic"
+            report_type="qweb-html"
+            name="bs_report.report_bs_income_balance_analytic"
+            file="bs_report.report_bs_income_balance_analytic"
+            menu="False" />
+
+        <report
+            id="xls_report_bs_income_balance_statement_analytic_action"
+            model="bs.income.balance.analytic"
+            string="Income/Balance Statement"
+            report_type="xlsx"
+            name="bs_report.report_xls_bs_income_balance_analytic"
+            file="bs_report.report_xls_bs_income_balance_analytic"
+            menu="False" />
+
+        <report
+            id="report_bs_income_balance_statement_general_action"
+            string="Income/Balance Statement"
+            model="bs.income.balance.general"
+            report_type="qweb-pdf"
+            name="bs_report.report_bs_income_balance_general"
+            file="bs_report.report_bs_income_balance_general"
+            menu="False" />
+
+        <report
+            id="html_report_bs_income_balance_statement_general_action"
+            string="Statement HTML"
+            model="bs.income.balance.general"
+            report_type="qweb-html"
+            name="bs_report.report_bs_income_balance_general"
+            file="bs_report.report_bs_income_balance_general"
+            menu="False" />
+
+        <report
+            id="xls_report_bs_income_balance_statement_general_action"
+            model="bs.income.balance.general"
+            string="Income/Balance Statement"
+            report_type="xlsx"
+            name="bs_report.report_xls_bs_income_balance_general"
+            file="bs_report.report_xls_bs_income_balance_general"
+            menu="False"  />
+
+        <report
+            id="report_bs_coa_inheritance_summary_action"
+            string="COA Inheritance Statement"
+            model="bs.coa.inheritance.summary"
+            report_type="qweb-pdf"
+            name="bs_report.report_bs_coa_inheritance_summary"
+            file="bs_report.report_bs_coa_inheritance_summary"
+            menu="False" />
+
+        <report
+            id="html_report_bs_coa_inheritance_summary_action"
+            string="COA Inheritance Statement HTML"
+            model="bs.coa.inheritance.summary"
+            report_type="qweb-html"
+            name="bs_report.report_bs_coa_inheritance_summary"
+            file="bs_report.report_bs_coa_inheritance_summary"
+            menu="False" />
+
+        <report
+            id="action_pdf_report_journal_entries"
+            model="account.move"
+            string="Journal Entries"
+            report_type="qweb-pdf"
+            name="bs_report.report_journalentries"
+            file="bs_report.report_journalentries"
+            />
+
+        <record id="report_bs_income_balance_statement_analytic_action" model="ir.actions.report">
+            <field name="paperformat_id" ref="bs_report.paperformat_portrait_report"/>
+        </record>
+    </data>
+</odoo>

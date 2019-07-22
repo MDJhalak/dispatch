@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bs_base.layout_footer" inherit_id="web.menu_secondary" name="Footer Submenu">
+        <xpath expr="//div[@class='o_sub_menu_footer']" position="replace">
+            <div class="o_sub_menu_footer">
+                Powered by <a href="http://www.brainstation-23.com" target="_blank"><span style="color:#1892E7;">BrainStation-23</span></a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="external_layout_background_inherit" inherit_id="web.external_layout_background">
+        <xpath expr="//div[@class='footer o_background_footer']//div//div[@class='text-muted']" position="after">
+            <p class="text-right">
+                Powered by <a href="http://www.brainstation-23.com" target="_blank"><span style="color:#1892E7;">BrainStation-23</span></a>
+            </p>
+        </xpath>
+    </template>
+</odoo>
